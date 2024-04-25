@@ -160,3 +160,8 @@ query {
 
 - [GraphQL](https://graphql.org/)
 - [Kinsta.com](https://kinsta.com/pt/blog/graphql-vs-rest/)
+
+## Screenshots
+
+![image](https://github.com/luiisp/graphql-fastapi/assets/115284250/ece8f006-657d-48b5-a44c-4e36aeaa5627)
+![image](https://github.com/luiisp/graphql-fastapi/assets/115284250/62693a98-d058-4f62-9810-7dde251589fb)
