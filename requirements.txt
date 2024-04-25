@@ -1,0 +1,5 @@
+fastapi==0.110.2
+python_bcrypt==0.3.2
+SQLAlchemy==1.4.50
+strawberry==3.0
+uvicorn==0.20.0

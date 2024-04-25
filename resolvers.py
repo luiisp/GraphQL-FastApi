@@ -1,5 +1,5 @@
 import strawberry
-from typing import List
+from typing import List, Optional
 from database import get_db
 from schema import PublicUser
 from models.models import UserModel
@@ -49,26 +49,22 @@ class Mutation:
                           email=user.email)
 
     @strawberry.mutation
-    def update_user(self,
-                    id: int,
-                    name: str,
-                    username: str,
-                    password: str,
-                    email: str) -> PublicUser:
+    def update_user(self, id: int, email: str, name: Optional[str] = None, username: Optional[str] = None, password: Optional[str] = None) -> PublicUser:
         db = next(get_db())
         user = db.query(UserModel).filter(UserModel.id == id).first()
         if user:
-            user.name = name
-            user.username = username
-            user.password = password
+            if name is not None:
+                user.name = name
+            if username is not None:
+                user.username = username
+            if password is not None:
+                user.password = password
             user.email = email
             db.commit()
-            return PublicUser(id=user.id,
-                              name=user.name, 
-                              username=user.username,
-                              email=user.email)
+            return PublicUser(id=user.id, name=user.name, username=user.username, email=user.email)
         else:
             return None
+
 
     @strawberry.mutation
     def delete_user(self, id: int) -> PublicUser:
