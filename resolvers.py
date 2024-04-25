@@ -1,8 +1,8 @@
 import strawberry
 from typing import List
 from database import get_db
-from .schema import PublicUser
-from models import UserModel
+from schema import PublicUser
+from models.models import UserModel
 
 @strawberry.type
 class Query:

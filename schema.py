@@ -1,5 +1,5 @@
 import strawberry
-from .models.models import UserModel
+
 
 @strawberry.type
 class PublicUser:
